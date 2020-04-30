@@ -4,6 +4,8 @@
 - Swift ： Starscream
 - Server:  Node.js
 
+<img src="websocket.png">
+
 ## 启动
 
 1. `npm install ws`
@@ -33,42 +35,42 @@
 
 1. 首先由客户端发起HTTP请求，在请求头Heade里面增加一个`Upgrade:websocket`字段，表示要升级协议到WebSocket。
 
-客户端请求报文及实现
-客户端请求报文:
-```text
-GET / HTTP/1.1
-Upgrade: websocket
-Connection: Upgrade
-Host: example.com
-Origin: http://example.com
-Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ==
-Sec-WebSocket-Version: 13
-```
-与传统报文不同的地方:
-```text
-Upgrade: websocket
-Connection: Upgrade
-```
-下面两行表示webscoket协议的信息
-```text
-Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ==   // 随机生成
-Sec-WebSocket-Version: 13
-```
+	客户端请求报文及实现
+	客户端请求报文:
+	```text
+	GET / HTTP/1.1
+	Upgrade: websocket
+	Connection: Upgrade
+	Host: example.com
+	Origin: http://example.com
+	Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ==
+	Sec-WebSocket-Version: 13
+	```
+	与传统报文不同的地方:
+	```text
+	Upgrade: websocket
+	Connection: Upgrade
+	```
+	下面两行表示webscoket协议的信息
+	```text
+	Sec-WebSocket-Key: sN9cRrP/n9NdMgdcy2VJFQ==   // 随机生成
+	Sec-WebSocket-Version: 13
+	```
 
-2. 服务端在收到后就会响应一个握手的确认, 发送`101 switching`表示允许客户端用WebSocket协议。
+2. 服务端在收到后就会响应一个握手的确认, 发送`status : 101 switching Protocols`表示允许客户端用WebSocket协议。
 
-服务端响应报文
-```
-HTTP/1.1 101 Switching Protocols
-Upgrade: websocket
-Connection: Upgrade
-Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
-Sec-WebSocket-Protocol: chat
-```
+	服务端响应报文
+	```
+	HTTP/1.1 101 Switching Protocols
+	Upgrade: websocket
+	Connection: Upgrade
+	Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+	Sec-WebSocket-Protocol: chat
+	```
 
 3. 至此双端就可以互相发送消息了。
 
-> WebSocket只需要一次HTTP握手
+   > WebSocket只需要一次HTTP握手
 
 ## 常见问题?
 
@@ -83,5 +85,7 @@ Sec-WebSocket-Protocol: chat
    长连机制，`Ping`由客户端告诉服务端自己还存活，`Pong`由服务端告诉客户端自己存活
 
 ## Reference
- [Starscream](https://github.com/daltoniam/Starscream)
+
+ Swift版本的WebSocket框架[Starscream](https://github.com/daltoniam/Starscream)
+
  [Node.js实现WebSocket聊天室的例子](https://waylau.com/node.js-websocket-chat/)
