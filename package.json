@@ -1,0 +1,17 @@
+{
+  "name": "SSRWebSocket",
+  "version": "1.0.0",
+  "description": "https://www.runoob.com/nodejs/nodejs-http-server.html",
+  "main": "websocket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.2.5"
+  }
+}

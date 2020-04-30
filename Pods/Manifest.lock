@@ -1,0 +1,16 @@
+PODS:
+  - Starscream (4.0.3)
+
+DEPENDENCIES:
+  - Starscream (= 4.0.3)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Starscream
+
+SPEC CHECKSUMS:
+  Starscream: ef06f0961fff0880bca0604416d61141e4faca67
+
+PODFILE CHECKSUM: a016d1248d7cdab4b91150441359e6420fc1ebce
+
+COCOAPODS: 1.8.4
